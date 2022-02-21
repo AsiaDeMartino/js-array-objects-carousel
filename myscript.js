@@ -63,13 +63,41 @@ immaginiSlider.forEach( () => {
     let immagini = document.createElement("img");
     immagini.src = immaginiSlider[i].immagine;
     ITEM.append(immagini);
-    i++
+    i++;
 } );
 
 
 
 //ciclo for per inserire img grande
-for (let i = 0; i < immaginiSlider.length; i++) {
+// for (let i = 0; i < immaginiSlider.length; i++) {
+//     const ITEM = document.createElement("div");
+//     SLIDEWRAPPER.append(ITEM);
+//     ITEM.classList.add("slide-" + (i) , "slide" );
+
+//     let immagini = document.createElement("img");
+//     immagini.src = immaginiSlider[i].immagine;
+//     ITEM.append(immagini);
+
+//     const TEXTWRAPPER = document.createElement("div");
+//     ITEM.append(TEXTWRAPPER);
+//     TEXTWRAPPER.classList.add("testo");
+    
+//     let titolo = document.createElement("h1");
+//     TEXTWRAPPER.append(titolo);
+//     titolo.innerHTML += immaginiSlider[i].titolo
+
+//     let testo = document.createElement("h4");
+//     TEXTWRAPPER.append(testo);
+//     testo.innerHTML += immaginiSlider[i].descrizione;
+// }
+
+// console.log(SLIDEWRAPPER);
+
+//reset variabile indice
+i = 0;
+
+immaginiSlider.forEach( () => {
+
     const ITEM = document.createElement("div");
     SLIDEWRAPPER.append(ITEM);
     ITEM.classList.add("slide-" + (i) , "slide" );
@@ -89,9 +117,10 @@ for (let i = 0; i < immaginiSlider.length; i++) {
     let testo = document.createElement("h4");
     TEXTWRAPPER.append(testo);
     testo.innerHTML += immaginiSlider[i].descrizione;
-}
 
-console.log(SLIDEWRAPPER);
+    i++;
+
+} );
 
 
 //reset variabile indice
