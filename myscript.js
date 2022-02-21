@@ -40,7 +40,22 @@ const SLIDEWRAPPER = document.querySelector(".slide-wrapper");
 
 
 //ciclo for per inserire img slider
-for (let i = 0; i < immaginiSlider.length; i++) {
+
+// for (let i = 0; i < immaginiSlider.length; i++) {
+//     const ITEM = document.createElement("div");
+//     ITEMWRAPPER.append(ITEM);
+//     ITEM.classList.add("item-" + (i) , "item" );
+
+//     let immagini = document.createElement("img");
+//     immagini.src = immaginiSlider[i].immagine;
+//     ITEM.append(immagini);
+// }
+
+// console.log(ITEMWRAPPER)
+
+let i = 0;
+
+immaginiSlider.forEach( () => {
     const ITEM = document.createElement("div");
     ITEMWRAPPER.append(ITEM);
     ITEM.classList.add("item-" + (i) , "item" );
@@ -48,9 +63,9 @@ for (let i = 0; i < immaginiSlider.length; i++) {
     let immagini = document.createElement("img");
     immagini.src = immaginiSlider[i].immagine;
     ITEM.append(immagini);
-}
+    i++
+} );
 
-console.log(ITEMWRAPPER)
 
 
 //ciclo for per inserire img grande
@@ -80,7 +95,7 @@ console.log(SLIDEWRAPPER);
 
 
 //reset variabile indice
-let i = 0;
+i = 0;
 
 
 //dare active alle prime immagini
