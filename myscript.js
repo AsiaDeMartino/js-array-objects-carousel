@@ -1,26 +1,36 @@
-const items = [
-    'img/01.jpg',
-    'img/02.jpg',
-    'img/03.jpg',
-    'img/04.jpg',
-    'img/05.jpg'
-];
+const immaginiSlider = [
 
-const title = [
-    'Svezia',
-    'Svizzera',
-    'Gran Bretagna',
-    'Germania',
-    'Paradise'
-];
+    {
+        immagine : 'img/01.jpg',
+        titolo : 'Svezia',
+        descrizione : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
+    },
 
-const text = [
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
-    'Lorem ipsum',
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
-    'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
-];
+    {
+        immagine : 'img/02.jpg',
+        titolo : 'Svizzera',
+        descrizione : 'Lorem ipsum',
+    },
+
+    {
+        immagine : 'img/03.jpg',
+        titolo : 'Gran Bretagna',
+        descrizione : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    },
+
+    {
+        immagine : 'img/04.jpg',
+        titolo : 'Germania',
+        descrizione : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    },
+
+    {
+        immagine : 'img/05.jpg',
+        titolo : 'Paradise',
+        descrizione : 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    }
+
+]
 
 
 //definisco le variabili
@@ -30,13 +40,13 @@ const SLIDEWRAPPER = document.querySelector(".slide-wrapper");
 
 
 //ciclo for per inserire img slider
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i < immaginiSlider.length; i++) {
     const ITEM = document.createElement("div");
     ITEMWRAPPER.append(ITEM);
     ITEM.classList.add("item-" + (i) , "item" );
 
     let immagini = document.createElement("img");
-    immagini.src = items[i];
+    immagini.src = immaginiSlider[i].immagine;
     ITEM.append(immagini);
 }
 
@@ -44,13 +54,13 @@ console.log(ITEMWRAPPER)
 
 
 //ciclo for per inserire img grande
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i < immaginiSlider.length; i++) {
     const ITEM = document.createElement("div");
     SLIDEWRAPPER.append(ITEM);
     ITEM.classList.add("slide-" + (i) , "slide" );
 
     let immagini = document.createElement("img");
-    immagini.src = items[i];
+    immagini.src = immaginiSlider[i].immagine;
     ITEM.append(immagini);
 
     const TEXTWRAPPER = document.createElement("div");
@@ -59,11 +69,11 @@ for (let i = 0; i < items.length; i++) {
     
     let titolo = document.createElement("h1");
     TEXTWRAPPER.append(titolo);
-    titolo.innerHTML += title[i]
+    titolo.innerHTML += immaginiSlider[i].titolo
 
     let testo = document.createElement("h4");
     TEXTWRAPPER.append(testo);
-    testo.innerHTML += text[i];
+    testo.innerHTML += immaginiSlider[i].descrizione;
 }
 
 console.log(SLIDEWRAPPER);
@@ -104,7 +114,7 @@ PREV.addEventListener("click", function(){
         activeItem.classList.add("active");
         activeSlide.classList.add("active");
     } else {
-        i = items.length-1;
+        i = immaginiSlider.length-1;
         let activeItem = document.querySelector(`.item-${i}`);
         let activeSlide = document.querySelector(`.slide-${i}`);
         activeItem.classList.add("active");
@@ -123,7 +133,7 @@ NEXT.addEventListener("click", function(){
     activeItem.classList.remove("active");
     activeSlide.classList.remove("active");
 
-    if (i < items.length-1) {
+    if (i < immaginiSlider.length-1) {
         i++
         let activeItem = document.querySelector(`.item-${i}`);
         let activeSlide = document.querySelector(`.slide-${i}`);
